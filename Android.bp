@@ -48,6 +48,39 @@ cc_prebuilt_library_shared {
 }
 
 android_app_import {
+	name: "DiracAudioControlService",
+	owner: "nothing",
+	apk: "proprietary/system/priv-app/DiracAudioControlService/DiracAudioControlService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "DiracAudioControlService_DMP",
+	owner: "nothing",
+	apk: "proprietary/system/priv-app/DiracAudioControlService_DMP/DiracAudioControlService_DMP.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
+	name: "NothingDiracService",
+	owner: "nothing",
+	apk: "proprietary/system/priv-app/NothingDiracService/NothingDiracService.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+}
+
+android_app_import {
 	name: "CACertService",
 	owner: "nothing",
 	apk: "proprietary/vendor/app/CACertService/CACertService.apk",
@@ -119,6 +152,17 @@ android_app_import {
 	name: "PowerOffAlarm",
 	owner: "nothing",
 	apk: "proprietary/system_ext/app/PowerOffAlarm/PowerOffAlarm.apk",
+	certificate: "platform",
+	dex_preopt: {
+		enabled: false,
+	},
+	system_ext_specific: true,
+}
+
+android_app_import {
+	name: "QCC",
+	owner: "nothing",
+	apk: "proprietary/system_ext/app/QCC/QCC.apk",
 	certificate: "platform",
 	dex_preopt: {
 		enabled: false,
@@ -203,9 +247,29 @@ dex_import {
 }
 
 dex_import {
+	name: "com.nxp.nfc",
+	owner: "nothing",
+	jars: ["proprietary/system/framework/com.nxp.nfc.jar"],
+}
+
+dex_import {
 	name: "tcmclient",
 	owner: "nothing",
 	jars: ["proprietary/system/framework/tcmclient.jar"],
+}
+
+dex_import {
+	name: "androidx.camera.extensions.impl.advanced",
+	owner: "nothing",
+	jars: ["proprietary/system_ext/framework/androidx.camera.extensions.impl.advanced.jar"],
+	system_ext_specific: true,
+}
+
+dex_import {
+	name: "audiosphere",
+	owner: "nothing",
+	jars: ["proprietary/system_ext/framework/audiosphere.jar"],
+	system_ext_specific: true,
 }
 
 dex_import {
@@ -236,15 +300,6 @@ dex_import {
 	system_ext_specific: true,
 }
 
-prebuilt_etc {
-	name: "init.qti.media",
-	owner: "nothing",
-	src: "proprietary/vendor/etc/init/init.qti.media.rc",
-	filename_from_src: true,
-	sub_dir: "init",
-	soc_specific: true,
-}
-
 prebuilt_etc_xml {
 	name: "android.hardware.gnss@2.1-service-qti",
 	owner: "nothing",
@@ -267,6 +322,15 @@ prebuilt_etc_xml {
 	name: "manifest_android.hardware.drm@1.3-service.widevine",
 	owner: "nothing",
 	src: "proprietary/vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml",
+	filename_from_src: true,
+	sub_dir: "vintf/manifest",
+	soc_specific: true,
+}
+
+prebuilt_etc_xml {
+	name: "vendor.qti.diag.hal.service",
+	owner: "nothing",
+	src: "proprietary/vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml",
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
@@ -298,3 +362,4 @@ prebuilt_etc_xml {
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
 }
+
